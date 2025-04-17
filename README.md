@@ -98,18 +98,27 @@ HAVING COUNT(*) > 1
   - Explore Data Lake > files container > year/month/day folders
 
 # 6. Query Aggregated CSV Data in Synapse Studio
+
 SELECT
+
     TOP 100 *
+    
 FROM
+
     OPENROWSET(
+    
         BULK 'https://<your-storage>.dfs.core.windows.net/files/2023/**',
         FORMAT = 'CSV',
+        
         PARSER_VERSION = '2.0',
+        
         HEADER_ROW = TRUE
+        
     ) AS [result]
 
 # Clean Up
 To avoid additional charges, stop all running Stream Analytics jobs and delete the resource group when finished.
+
 
 👤 Yazar
 Sefa Öztürk
