@@ -1,0 +1,1 @@
+# Ingest-realtime-data-with-Azure-Stream-Analytics-and-Azure-Synapse-Analytics
