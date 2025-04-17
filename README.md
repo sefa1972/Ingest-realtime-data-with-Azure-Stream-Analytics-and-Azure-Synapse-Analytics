@@ -43,14 +43,23 @@ node ~/dp-203/Allfiles/labs/18/orderclient
   - Input: Event Hub (orders)
   - Output: Azure Synapse Table (FactOrder)
   - Query:
+  - 
 SELECT
+
     EventProcessedUtcTime AS OrderDateTime,
+    
     ProductID,
+    
     Quantity
+    
 INTO
+
     [FactOrder]
+    
 FROM
+
     [orders]
+    
 
   - Start the job
   - Re-run the Node.js order client script
@@ -61,16 +70,27 @@ FROM
   - Output: Azure Data Lake Storage (datalake)
   - Output Format: CSV, append mode
   - Query:
+  - 
 SELECT
+
     DateAdd(second,-5,System.TimeStamp) AS StartTime,
+    
     System.TimeStamp AS EndTime,
+    
     ProductID,
+    
     SUM(Quantity) AS Orders
+    
 INTO
+
     [datalake]
+    
 FROM
+
     [orders] TIMESTAMP BY EventProcessedUtcTime
+    
 GROUP BY ProductID, TumblingWindow(second, 5)
+
 HAVING COUNT(*) > 1
 
   - Start the job
