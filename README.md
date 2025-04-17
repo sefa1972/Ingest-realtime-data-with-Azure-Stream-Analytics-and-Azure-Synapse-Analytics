@@ -30,20 +30,24 @@ This lab simulates an online retail application generating continuous sales orde
   - Dedicated SQL Pool
   - Azure Event Hub Namespace
   - Azure Data Lake Storage
+    
 # 2. Send Simulated Order Data
 Run the following command in Cloud Shell to send 100 simulated orders:
+
 node ~/dp-203/Allfiles/labs/18/orderclient
+
 # 3. Verify Table in Synapse Studio
   - Open Synapse Studio
   - Resume the SQL Pool if needed
   - Navigate to Tables > dbo.FactOrder
   - Run SELECT TOP 100 * FROM dbo.FactOrder
+    
 # 4. Create Azure Stream Analytics Job – Ingest Orders
   - Job name: ingest-orders
   - Input: Event Hub (orders)
   - Output: Azure Synapse Table (FactOrder)
   - Query:
-  - 
+    
 SELECT
 
     EventProcessedUtcTime AS OrderDateTime,
@@ -64,6 +68,7 @@ FROM
   - Start the job
   - Re-run the Node.js order client script
   - Check the table for ingested data
+    
 # 5. Create Azure Stream Analytics Job – Aggregate Orders
   - Job name: aggregate-orders
   - Input: Event Hub (orders)
@@ -120,8 +125,11 @@ FROM
 To avoid additional charges, stop all running Stream Analytics jobs and delete the resource group when finished.
 
 
+
 👤 Yazar
 Sefa Öztürk
+
 IT Trainee | Azure Data Engineer in progress
+
 📇 LinkedIn: https://www.linkedin.com/in/sefa-ozturk1972
 
