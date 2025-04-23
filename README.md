@@ -126,7 +126,7 @@ To avoid additional charges, stop all running Stream Analytics jobs and delete t
 
 
 
-👤 Yazar
+👤 Author
 Sefa Öztürk
 
 IT Trainee | Azure Data Engineer in progress
